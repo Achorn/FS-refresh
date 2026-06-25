@@ -1,17 +1,13 @@
-import express from 'express'
-import cors from 'cors'
+import express from "express";
+import cors from "cors";
+import noteRoutes from "./routes/notes.js";
+
 const app = express();
-
-
 
 // middleware
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-//sample route
-app.get('/api/health', (req,res)=> {
-    res.json({status:'UP', message:'ES Module backend is running!'});
-});
+app.use("/notes", noteRoutes);
 
-
-export default app
+export default app;
